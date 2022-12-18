@@ -1,3 +1,3 @@
-def call[name] {
-   echo "hi $[name] , WELCOME"
+def call('name') {
+   echo "hi $('name') , WELCOME"
 }
