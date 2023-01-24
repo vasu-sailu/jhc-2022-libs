@@ -1,0 +1,18 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Git checkout') {
+            steps {
+                git url: 'https://github.com/vasu-sailu/myweb', branch: "master" 
+            }
+        }
+         stage('SonarQube Analysis') {
+             steps {
+                  withSonarQubeEnv('sonar9') { 
+                  sh "mvn sonar:sonar"
+                }
+            }
+         }       
+    }
+}
